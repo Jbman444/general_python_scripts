@@ -23,7 +23,7 @@ def pick_crop_box(img_path):
         crop_box["box"] = (left, upper, right, lower)
         print("Selected crop box:", crop_box["box"])
 
-    RectangleSelector(
+    selector = RectangleSelector(
         ax,
         on_select,
         useblit=True,
@@ -47,13 +47,13 @@ def crop_with_box(img_path, out_path, box):
 
 # ---------- EDIT THESE ----------
 
-dir = Path('/media/jorge/Crucial_X9/streamlines/updates/crop')
+dir = Path.cwd()
 
 
-img1 = dir / "T0_gray.png"
-img2 = dir / "T13_gray.png"
-out1 = dir / "T0_gray_cropped.png"
-out2 = dir /"T13_gray_cropped.png"
+img1 = dir / "Glow_Flow_April13.png"
+img2 = dir / "Glow_Flow_April13_NF.png"
+out1 = dir / "Glow_Flow_April13_crop.png"
+out2 = dir /"Glow_Flow_April13_NF_crop.png"
 
 # 1) choose crop on first image
 box = pick_crop_box(img1)
