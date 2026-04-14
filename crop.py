@@ -40,7 +40,7 @@ def pick_crop_box(img_path):
 
 # ---------- apply crop box to any image ----------
 def crop_with_box(img_path, out_path, box):
-    img = Image.open(img_path).convert("RGB")
+    img = Image.open(img_path).convert("RGBA")# RGB background not transport
     cropped = img.crop(box)
     cropped.save(out_path, quality=95)
     return cropped.size
